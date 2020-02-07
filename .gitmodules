@@ -1,0 +1,3 @@
+[submodule "themes/material-flow"]
+	path = themes/material-flow
+	url = https://github.com/AxisRay/hexo-theme-material-flow.git
