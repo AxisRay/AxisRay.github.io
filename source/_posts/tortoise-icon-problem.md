@@ -8,6 +8,7 @@ tags:
 - tortoise
 ---
 最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢[woyaowenzi](http://blog.csdn.net/woyaowenzi/article/details/7538053)）
+<!-- more -->
 Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。
 TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：
 _普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本化图标_
