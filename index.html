@@ -157,7 +157,6 @@
   </section>
   <section class="article typo">
 	  <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。</p>
-<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>这里以本blog的主题（theme）为例，我fork了原作者的仓库，并在其基础上做了些个性化的改动，这些改动作者肯定不会合入的。但是近期原作者做了一些更新，加入的新的功能，因此我要将最新的版本合入到我自己的仓库中。详细操作步骤如下：</p>
 
     
 	  <div class="readmore">
@@ -244,9 +243,7 @@
 
   </section>
   <section class="article typo">
-	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作。</p>
-<h1 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ var_value=<span class="string">"test"</span></span><br><span class="line">$ var_empty=<span class="string">""</span></span><br><span class="line">$ <span class="built_in">unset</span> var_null</span><br><span class="line">$ result=<span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
-<p>先创建4个变量（实际上是3个，因为var_null不存在）。<br>var_value值为test<br>var_empty值为空字符<br>var_null不存在，用unset确保它不存在<br>result用来保存结果，先赋个初值hello</p>
+	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
 
     
 	  <div class="readmore">
@@ -376,13 +373,6 @@
   </section>
   <section class="article typo">
 	  <h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>权限分三种，读（r）写（w）可执行（x）。“r–”、“rw-”、“rwx”这三种权限组合没什么好说的。“r–”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。</p>
-<h2 id="w-、-wx："><a href="#w-、-wx：" class="headerlink" title="-w-、-wx："></a><strong>-w-、-wx：</strong></h2><p>只写权限，只能写入不能读取。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw--w- 1 root root    5 Jan  4 12:00 testfile</span><br><span class="line">/tmp$ cat testfile</span><br><span class="line">cat: testfile: Permission denied</span><br><span class="line">/tmp$ <span class="built_in">echo</span> <span class="string">"write-test"</span>&gt;testfile</span><br><span class="line">/tmp$ su root</span><br><span class="line">Password: </span><br><span class="line">root@axisray:/tmp<span class="comment"># cat testfile </span></span><br><span class="line">write-test</span><br></pre></td></tr></table></figure>
-
-<h2 id="–x、-wx："><a href="#–x、-wx：" class="headerlink" title="–x、-wx："></a><strong>–x、-wx：</strong></h2><p>虽然有执行权限，但是由于没有读权限，连文件内容都不知道谈何执行呢？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw---x  1 root root   26 Jan  4 12:53 testfile*</span><br><span class="line">/tmp$ ./testfile </span><br><span class="line">/bin/bash: ./testfile: Permission denied</span><br><span class="line">/tmp$ su root</span><br><span class="line">Password: </span><br><span class="line">root@axisray:/tmp<span class="comment"># chmod o=rx testfile</span></span><br><span class="line">root@axisray:/tmp$ ll | grep testfile</span><br><span class="line">-rw-rw-r-x  1 root root   26 Jan  4 12:53 testfile*</span><br><span class="line">root@axisray:/tmp<span class="comment"># su ray</span></span><br><span class="line">/tmp$ ./testfile </span><br><span class="line">hello!</span><br></pre></td></tr></table></figure>
-
-<h1 id="目录权限"><a href="#目录权限" class="headerlink" title="目录权限"></a>目录权限</h1><p>目录权限的关键在于可执行权限（x），下面逐个说明</p>
 
     
 	  <div class="readmore">
@@ -424,13 +414,12 @@
 
   </section>
   <section class="article typo">
-	  <p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）<br>Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。<br>TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：<br><em>普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本化图标</em><br>而每个网盘类的客户端又会占用3个左右。<br><img src="/img/tortoise-icon.gif" alt="tortoise-icon"><br>所有应用程序的覆盖图标都需要在注册表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</span><br></pre></td></tr></table></figure>
+	  <p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）</p>
 
-<p>下面增加一个项目，当需要显示覆盖图标时，Windows会按照项目名称的字母顺利依次查询在这些项目里所指示的接口，以检测是否有覆盖图标，<em>当检测到11个有效的接口后，Windows就会自动停止继续向下检测，这样，后来的覆盖图标就不会显示了。</em></p>
-<p><strong>解决方法</strong>：把其他网盘类的覆盖图标注册表项删除，让TortoiseSVN/Git的注册表项提前</p>
-
-
+    
+	  <div class="readmore">
+      <a href="/2014/12/09/tortoise-icon-problem/">Read More</a>
+    </div>
     
     
     
@@ -693,7 +682,7 @@
 </script>
 
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.6/waves.min.js'></script>
 <script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
 
 <script src="/js/jquery.fitvids.js"></script>

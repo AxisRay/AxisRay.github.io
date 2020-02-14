@@ -207,9 +207,7 @@
 
   </section>
   <section class="article typo">
-	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作。</p>
-<h1 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ var_value=<span class="string">"test"</span></span><br><span class="line">$ var_empty=<span class="string">""</span></span><br><span class="line">$ <span class="built_in">unset</span> var_null</span><br><span class="line">$ result=<span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
-<p>先创建4个变量（实际上是3个，因为var_null不存在）。<br>var_value值为test<br>var_empty值为空字符<br>var_null不存在，用unset确保它不存在<br>result用来保存结果，先赋个初值hello</p>
+	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
 
     
 	  <div class="readmore">
@@ -339,13 +337,6 @@
   </section>
   <section class="article typo">
 	  <h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>权限分三种，读（r）写（w）可执行（x）。“r–”、“rw-”、“rwx”这三种权限组合没什么好说的。“r–”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。</p>
-<h2 id="w-、-wx："><a href="#w-、-wx：" class="headerlink" title="-w-、-wx："></a><strong>-w-、-wx：</strong></h2><p>只写权限，只能写入不能读取。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw--w- 1 root root    5 Jan  4 12:00 testfile</span><br><span class="line">/tmp$ cat testfile</span><br><span class="line">cat: testfile: Permission denied</span><br><span class="line">/tmp$ <span class="built_in">echo</span> <span class="string">"write-test"</span>&gt;testfile</span><br><span class="line">/tmp$ su root</span><br><span class="line">Password: </span><br><span class="line">root@axisray:/tmp<span class="comment"># cat testfile </span></span><br><span class="line">write-test</span><br></pre></td></tr></table></figure>
-
-<h2 id="–x、-wx："><a href="#–x、-wx：" class="headerlink" title="–x、-wx："></a><strong>–x、-wx：</strong></h2><p>虽然有执行权限，但是由于没有读权限，连文件内容都不知道谈何执行呢？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw---x  1 root root   26 Jan  4 12:53 testfile*</span><br><span class="line">/tmp$ ./testfile </span><br><span class="line">/bin/bash: ./testfile: Permission denied</span><br><span class="line">/tmp$ su root</span><br><span class="line">Password: </span><br><span class="line">root@axisray:/tmp<span class="comment"># chmod o=rx testfile</span></span><br><span class="line">root@axisray:/tmp$ ll | grep testfile</span><br><span class="line">-rw-rw-r-x  1 root root   26 Jan  4 12:53 testfile*</span><br><span class="line">root@axisray:/tmp<span class="comment"># su ray</span></span><br><span class="line">/tmp$ ./testfile </span><br><span class="line">hello!</span><br></pre></td></tr></table></figure>
-
-<h1 id="目录权限"><a href="#目录权限" class="headerlink" title="目录权限"></a>目录权限</h1><p>目录权限的关键在于可执行权限（x），下面逐个说明</p>
 
     
 	  <div class="readmore">
@@ -480,7 +471,7 @@
 </script>
 
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.6/waves.min.js'></script>
 <script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
 
 <script src="/js/jquery.fitvids.js"></script>

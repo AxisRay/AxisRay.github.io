@@ -12,16 +12,16 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="Ray of Hope">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢woyaowenzi）Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本">
+  <meta name="description" content="最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢woyaowenzi）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决TortoiseSVN&#x2F;Git覆盖图标失效的问题">
 <meta property="og:url" content="http://blog.raycn.pub/2014/12/09/tortoise-icon-problem/index.html">
 <meta property="og:site_name" content="Ray of Hope">
-<meta property="og:description" content="最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢woyaowenzi）Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本">
+<meta property="og:description" content="最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢woyaowenzi）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.raycn.pub/img/tortoise-icon.gif">
 <meta property="article:published_time" content="2014-12-09T12:38:23.000Z">
-<meta property="article:modified_time" content="2020-02-10T11:50:18.152Z">
+<meta property="article:modified_time" content="2020-02-14T14:35:11.384Z">
 <meta property="article:author" content="Ray Lee">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="tortoise">
@@ -164,7 +164,9 @@
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
-    	<p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）<br>Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。<br>TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：<br><em>普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本化图标</em><br>而每个网盘类的客户端又会占用3个左右。<br><img src="/img/tortoise-icon.gif" alt="tortoise-icon"><br>所有应用程序的覆盖图标都需要在注册表</p>
+    	<p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）</p>
+<a id="more"></a>
+<p>Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。<br>TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：<br><em>普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本化图标</em><br>而每个网盘类的客户端又会占用3个左右。<br><img src="/img/tortoise-icon.gif" alt="tortoise-icon"><br>所有应用程序的覆盖图标都需要在注册表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</span><br></pre></td></tr></table></figure>
 
 <p>下面增加一个项目，当需要显示覆盖图标时，Windows会按照项目名称的字母顺利依次查询在这些项目里所指示的接口，以检测是否有覆盖图标，<em>当检测到11个有效的接口后，Windows就会自动停止继续向下检测，这样，后来的覆盖图标就不会显示了。</em></p>
@@ -316,7 +318,7 @@
 </script>
 
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.6/waves.min.js'></script>
 <script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
 
 <script src="/js/jquery.fitvids.js"></script>

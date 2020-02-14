@@ -12,15 +12,15 @@
   <link rel="shortcut icon" href="/">
   <link rel="alternate" href="/atom.xml" title="Ray of Hope">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言某些时候，我们在给变量赋值之前要对某个变量进行判断,根据结果来决定我们下一步的赋值操作。 实验准备1234$ var_value&#x3D;&quot;test&quot;$ var_empty&#x3D;&quot;&quot;$ unset var_null$ result&#x3D;&quot;hello&quot; 先创建4个变量（实际上是3个，因为var_null不存在）。var_value值为testvar_empty值为空字符var_null不存在，用unset确保它">
+  <meta name="description" content="前言某些时候，我们在给变量赋值之前要对某个变量进行判断,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bash变量操作实验-变量的测试和内容替换">
 <meta property="og:url" content="http://blog.raycn.pub/2015/01/29/linux-set-var/index.html">
 <meta property="og:site_name" content="Ray of Hope">
-<meta property="og:description" content="前言某些时候，我们在给变量赋值之前要对某个变量进行判断,根据结果来决定我们下一步的赋值操作。 实验准备1234$ var_value&#x3D;&quot;test&quot;$ var_empty&#x3D;&quot;&quot;$ unset var_null$ result&#x3D;&quot;hello&quot; 先创建4个变量（实际上是3个，因为var_null不存在）。var_value值为testvar_empty值为空字符var_null不存在，用unset确保它">
+<meta property="og:description" content="前言某些时候，我们在给变量赋值之前要对某个变量进行判断,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-01-29T02:15:21.000Z">
-<meta property="article:modified_time" content="2020-02-10T11:50:18.152Z">
+<meta property="article:modified_time" content="2020-02-14T14:35:11.384Z">
 <meta property="article:author" content="Ray Lee">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="bash">
@@ -162,10 +162,11 @@
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作。</p>
+    	<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对<strong>某个</strong>变量进行<strong>判断</strong>,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
+<a id="more"></a>
 <h1 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ var_value=<span class="string">"test"</span></span><br><span class="line">$ var_empty=<span class="string">""</span></span><br><span class="line">$ <span class="built_in">unset</span> var_null</span><br><span class="line">$ result=<span class="string">"hello"</span></span><br></pre></td></tr></table></figure>
 <p>先创建4个变量（实际上是3个，因为var_null不存在）。<br>var_value值为test<br>var_empty值为空字符<br>var_null不存在，用unset确保它不存在<br>result用来保存结果，先赋个初值hello</p>
-<a id="more"></a>
+<!-- more -->
 <h2 id="实验1、“-”操作符"><a href="#实验1、“-”操作符" class="headerlink" title="实验1、“-”操作符"></a>实验1、“-”操作符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line">hello</span><br><span class="line">$ result=<span class="variable">$&#123;var_value-default&#125;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line">$ result=<span class="variable">$&#123;var_empty-default&#125;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line"></span><br><span class="line">$ result=<span class="variable">$&#123;var_null-default&#125;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line">default</span><br></pre></td></tr></table></figure>
 <p>因为$var_value存在，所以$result的值被替换成$var_value的值，即test<br>虽然$var_value为空字符，但也视为变量存在，因此$result的值被替换为$var_empty的值，即空字符<br>因为$var_null不存在，所以$result的值被替换为默认值default</p>
 <p>要把空字符也视为变量不存在，则需要”:”操作符</p>
@@ -326,7 +327,7 @@
 </script>
 
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.6/waves.min.js'></script>
 <script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
 
 <script src="/js/jquery.fitvids.js"></script>

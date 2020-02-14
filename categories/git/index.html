@@ -161,7 +161,6 @@
   </section>
   <section class="article typo">
 	  <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。</p>
-<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>这里以本blog的主题（theme）为例，我fork了原作者的仓库，并在其基础上做了些个性化的改动，这些改动作者肯定不会合入的。但是近期原作者做了一些更新，加入的新的功能，因此我要将最新的版本合入到我自己的仓库中。详细操作步骤如下：</p>
 
     
 	  <div class="readmore">
@@ -201,13 +200,12 @@
 
   </section>
   <section class="article typo">
-	  <p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）<br>Windows最多允许15个覆盖图标，系统占用了约4个，用户可用的只有11个左右。<br>TortoiseSVN或者TortoiseGit标准会占用7个覆盖图标，分别为：<br><em>普通图标、已修改图标、冲突指示图标、已删除图标、新增文件图标、忽略图标、未版本化图标</em><br>而每个网盘类的客户端又会占用3个左右。<br><img src="/img/tortoise-icon.gif" alt="tortoise-icon"><br>所有应用程序的覆盖图标都需要在注册表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers</span><br></pre></td></tr></table></figure>
+	  <p>最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢<a href="http://blog.csdn.net/woyaowenzi/article/details/7538053" target="_blank" rel="noopener">woyaowenzi</a>）</p>
 
-<p>下面增加一个项目，当需要显示覆盖图标时，Windows会按照项目名称的字母顺利依次查询在这些项目里所指示的接口，以检测是否有覆盖图标，<em>当检测到11个有效的接口后，Windows就会自动停止继续向下检测，这样，后来的覆盖图标就不会显示了。</em></p>
-<p><strong>解决方法</strong>：把其他网盘类的覆盖图标注册表项删除，让TortoiseSVN/Git的注册表项提前</p>
-
-
+    
+	  <div class="readmore">
+      <a href="/2014/12/09/tortoise-icon-problem/">Read More</a>
+    </div>
     
     
     
@@ -337,7 +335,7 @@
 </script>
 
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.6/waves.min.js'></script>
 <script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
 
 <script src="/js/jquery.fitvids.js"></script>
