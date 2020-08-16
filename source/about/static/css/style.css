@@ -120,7 +120,17 @@ hr {
 
 }
 
-
+@media screen{
+    body {
+        background-color: lightslategray;
+    }
+    
+}
+@media print{
+    body {
+        background-color: white;
+    }
+}
 body {
     background-color: lightslategray;
     font-family: sans-serif, Microsoft Yahei, Helvetica Neue;
