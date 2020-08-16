@@ -120,14 +120,20 @@ hr {
 
 }
 
-
+@media screen{
+    body {
+        background-color: lightslategray;
+    }
+    
+}
+@media print{
+    body {
+        background-color: white;
+    }
+}
 body {
-    background-color: lightslategray;
     font-family: sans-serif, Microsoft Yahei, Helvetica Neue;
     zoom: 80%;
-}
-
-footer {
 }
 
 p {
@@ -137,9 +143,6 @@ p {
 progress {
     background-color: #f6f6f6;
     display: inline;
-    /*width: 195px;*/
-    height: 1em;
-
 }
 
 progress::-webkit-progress-bar {
@@ -162,8 +165,6 @@ progress::-moz-progress-value {
 .progress-list {
     line-height: 2;
 }
-
-
 
 .me {
     text-align: center;
