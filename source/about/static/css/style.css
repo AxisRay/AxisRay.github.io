@@ -208,7 +208,7 @@ progress::-moz-progress-value {
     margin: 0 auto;
 
     width: 1050px;
-    height: 1850px;
+    height: auto;
     background-color: white;
 
 }
@@ -286,7 +286,7 @@ ul li{
     font-weight: bold;
 }
 
- .stack-list .item-remove {
+.stack-list .item-remove {
     position: absolute;
     right: 2px;
     top: 0px;
@@ -296,4 +296,14 @@ ul li{
     
 }
 
+@media print{
+    .noprint {
+        display: none
+    }
+}
 
+@media screen{
+    .noscreen {
+        display: none
+    }
+}
