@@ -10,7 +10,7 @@
   <meta name="HandheldFriendly" content="True" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" href="/">
-  <link rel="alternate" href="/atom.xml" title="Ray of Hope">
+  <link rel="alternate" href="/atom.xml" title="Ray of Hope" type="application/atom+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="背景github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。">
 <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
 <meta property="og:description" content="背景github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-06T12:03:45.000Z">
-<meta property="article:modified_time" content="2020-08-16T13:54:48.783Z">
+<meta property="article:modified_time" content="2020-02-06T12:03:45.000Z">
 <meta property="article:author" content="Ray Lee">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -36,8 +36,7 @@
       document.getElementById('loading-bar').style.width=num+"%";
     }
   </script>
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Ray of Hope" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body>
   <div id="loading-bar-wrapper">
@@ -68,7 +67,7 @@
 						</li>
 					
 						<li>
-							<a class='flat-box nav-github' href='https://github.com/axisray' target="_blank" rel="noopener">
+							<a class='flat-box nav-github' target="_blank" rel="noopener" href='https://github.com/axisray'>
 								GitHub
 							</a>
 						</li>
@@ -122,7 +121,7 @@
 				Archives
 			</a>
 		
-			<a href="https://github.com/axisray" target="_blank" rel="noopener" class="nav-github nav">
+			<a target="_blank" rel="noopener" href="https://github.com/axisray" class="nav-github nav">
 				GitHub
 			</a>
 		
@@ -157,7 +156,7 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作步骤"><span class="toc-number">2.</span> <span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#将要自己的仓库克隆（clone）到本地"><span class="toc-number">2.1.</span> <span class="toc-text">将要自己的仓库克隆（clone）到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加要合入的上游仓库"><span class="toc-number">2.2.</span> <span class="toc-text">添加要合入的上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉取（pull）上游仓库"><span class="toc-number">2.3.</span> <span class="toc-text">拉取（pull）上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建并切换到新的本地分支（branch），并将其连接到上游仓库要合入的分支"><span class="toc-number">2.4.</span> <span class="toc-text">创建并切换到新的本地分支（branch），并将其连接到上游仓库要合入的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换到自己仓库要合入的分支，并将上述新分支合入"><span class="toc-number">2.5.</span> <span class="toc-text">切换到自己仓库要合入的分支，并将上述新分支合入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后将自己仓库更新（push）上去即可"><span class="toc-number">2.6.</span> <span class="toc-text">最后将自己仓库更新（push）上去即可</span></a></li></ol></li></ol></section>
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A6%81%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%EF%BC%88clone%EF%BC%89%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.1.</span> <span class="toc-text">将要自己的仓库克隆（clone）到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">添加要合入的上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%EF%BC%88pull%EF%BC%89%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">拉取（pull）上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%EF%BC%88branch%EF%BC%89%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%85%B6%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">2.4.</span> <span class="toc-text">创建并切换到新的本地分支（branch），并将其连接到上游仓库要合入的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF%EF%BC%8C%E5%B9%B6%E5%B0%86%E4%B8%8A%E8%BF%B0%E6%96%B0%E5%88%86%E6%94%AF%E5%90%88%E5%85%A5"><span class="toc-number">2.5.</span> <span class="toc-text">切换到自己仓库要合入的分支，并将上述新分支合入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%B0%86%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0%EF%BC%88push%EF%BC%89%E4%B8%8A%E5%8E%BB%E5%8D%B3%E5%8F%AF"><span class="toc-number">2.6.</span> <span class="toc-text">最后将自己仓库更新（push）上去即可</span></a></li></ol></li></ol></section>
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
@@ -293,7 +292,7 @@
     
   </div>
   
-  <div>Theme <a href='https://github.com/stkevintan/hexo-theme-material-flow' target="_blank" rel="noopener" class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  <div>Theme <a target="_blank" rel="noopener" href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
   
 </footer>
 
