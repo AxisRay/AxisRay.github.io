@@ -7,6 +7,7 @@ tags:
 - docker
 - linux
 - jenkins
+comment: true
 ---
 jenkins在构建步骤中调用docker提示如下错误。
 > dial unix /var/run/docker.sock: permission denied. Are you trying to connect to a TLS-enabled daemon without TLS?

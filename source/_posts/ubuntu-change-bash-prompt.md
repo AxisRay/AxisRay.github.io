@@ -7,6 +7,7 @@ tags:
 - prompt
 - linux
 - bash
+comment: true
 ---
 Bash的提示符设置保存在$PS1这个变量中，通过echo命令可以查看当前设置
 ``` bash

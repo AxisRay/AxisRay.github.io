@@ -6,6 +6,7 @@ categories:
 tags:
 - git
 - tortoise
+comment: true
 ---
 最近发现TortoiseGit的覆盖图标不见了，从版本库里clone下来的源码没有了已同步，已修改之类的图标提示。下面给出解决办法：（感谢[woyaowenzi](http://blog.csdn.net/woyaowenzi/article/details/7538053)）
 <!-- more -->

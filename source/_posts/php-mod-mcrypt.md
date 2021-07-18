@@ -6,6 +6,7 @@ categories:
 tags:
 - ubuntu
 - phpmyadmin
+comment: true
 ---
 在ubuntu用apt-get安装phpmyadmin后，总会出现如下错误
 ![php-mod-mcrypt](/img/php-mcrypt.gif)

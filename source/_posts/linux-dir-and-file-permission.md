@@ -6,6 +6,7 @@ categories:
 tags:
 - bash
 - linux
+comment: true
 ---
 # 文件权限
 权限分三种，读（r）写（w）可执行（x）。“r--”、“rw-”、“rwx”这三种权限组合没什么好说的。“r--”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。

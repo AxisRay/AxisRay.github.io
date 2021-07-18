@@ -6,6 +6,7 @@ categories:
 tags:
 - tmux
 - linux
+comment: true
 ---
 # tmux简介
 tmux是

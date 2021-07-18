@@ -6,6 +6,7 @@ categories:
 tags: 
 - openwrt
 - shadowsocks
+comment: true
 ---
 # 一、__前言__
 虽然*Chrome*里的*SwitchySharp*插件可以根据规则自动转发特定流量到*Shadowsocks*，但是这种方式局限性还是很大。[北落师门][1]的博文中提供了一种在路由上自动转发特定流量的方法，使得转发过程对于客户端是透明的。我参考他的方法，做了一些改进。
