@@ -141,19 +141,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-ubuntu-change-bash-prompt"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-ubuntu-change-bash-prompt" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2015/01/27/ubuntu-change-bash-prompt/">
-    	Ubuntu下修改Bash的提示符
-    </a>
-  </h2>
-	<time>
-	  1月 27, 2015
-	</time>
-	
+		<h2 class="title">
+			<a href="/2015/01/27/ubuntu-change-bash-prompt/">
+				Ubuntu下修改Bash的提示符
+			</a>
+		</h2>
+		<time>
+			1月 27, 2015
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/linux/">linux</a>
@@ -161,11 +160,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<p>Bash的提示符设置保存在$PS1这个变量中，通过echo命令可以查看当前设置</p>
+		<section class="toc-wrapper">
+			
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<p>Bash的提示符设置保存在$PS1这个变量中，通过echo命令可以查看当前设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ray@Ray-Laptop:~$ <span class="built_in">echo</span> <span class="variable">$PS1</span></span><br><span class="line"><span class="variable">$&#123;debian_chroot:+($debian_chroot)&#125;</span>\u@\h:\w\$ </span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <p>默认的一些特殊符号所代表的含义：<br><strong>\d</strong> ：代表日期，格式为weekday month date，例如：”Mon Aug 1”<br><strong>\H</strong> ：完整的主机名称。例如：我的机器名称为：Ray-Laptop.local，则这个名称就是Ray-Laptop.local<br><strong>\h</strong> ：仅取主机的第一个名字，如上例，则为Ray-Laptop，local则被省略<br><strong>\t</strong> ：显示时间为24小时格式，如：HH：MM：SS<br><strong>\T</strong> ：显示时间为12小时格式<br><strong>\A</strong> ：显示时间为24小时格式：HH：MM<br><strong>\u</strong> ：当前用户的账号名称<br><strong>\v</strong> ：BASH的版本信息<br><strong>\w</strong> ：完整的工作目录名称。家目录会以 ~代替<br><strong>\W</strong> ：利用basename取得工作目录名称，所以只会列出最后一个目录<br><strong>\#</strong> ：下达的第几个命令<br><strong>$</strong> ：提示字符，如果是root时，提示符为：# ，普通用户则为：$</p>
@@ -175,35 +176,52 @@
 <p>即将原来的\w替换为\W，但是该方法仅在本次会话有效。我们可通过修改用户根目录～下的.bashrc文件，达到长期有效的目的。</p>
 <p>修改前：<br><img src="/img/prompt-too-long.png" alt="prompt-too-long"><br>修改后：<br><img src="/img/prompt-proper.png" alt="prompt-proper"></p>
 
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
-      
-        <a href="/tags/prompt/">prompt</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
-					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2015/01/28/tmux-intruduction/" rel="prev"  title="tmux使用笔记">
-						tmux使用笔记 
-					</a></span>
+					<div class="article-tags tags">
+						
+							<a href="/tags/linux/">
+								linux
+							</a>
+							
+							<a href="/tags/bash/">
+								bash
+							</a>
+							
+							<a href="/tags/prompt/">
+								prompt
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+									<span class="art-item-left">
+										<i class="icon icon-chevron-thin-left"></i>prev：<a
+											href="/2015/01/28/tmux-intruduction/" rel="prev" title="tmux使用笔记">
+											tmux使用笔记
+										</a></span>
+									
+										
+											<span class="art-item-right">next：<a href="/2015/01/04/linux-dir-and-file-permission/"
+													rel="next" title="linux文件及目录权限笔记">
+													linux文件及目录权限笔记
+												</a><i class="icon icon-chevron-thin-right"></i></span>
+											
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-				
-					<span class="art-item-right">next：<a href="/2015/01/04/linux-dir-and-file-permission/" rel="next"  title="linux文件及目录权限笔记">
-						linux文件及目录权限笔记
-					</a><i class="icon icon-chevron-thin-right"></i></span>
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -211,7 +229,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         

@@ -136,19 +136,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-git-merge-upstream"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-git-merge-upstream" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2020/02/06/git-merge-upstream/">
-    	Git如何合入上游仓库的分支
-    </a>
-  </h2>
-	<time>
-	  2月 6, 2020
-	</time>
-	
+		<h2 class="title">
+			<a href="/2020/02/06/git-merge-upstream/">
+				Git如何合入上游仓库的分支
+			</a>
+		</h2>
+		<time>
+			2月 6, 2020
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/git/">git</a>
@@ -156,11 +155,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A6%81%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%EF%BC%88clone%EF%BC%89%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.1.</span> <span class="toc-text">将要自己的仓库克隆（clone）到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">添加要合入的上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%EF%BC%88pull%EF%BC%89%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">拉取（pull）上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%EF%BC%88branch%EF%BC%89%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%85%B6%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">2.4.</span> <span class="toc-text">创建并切换到新的本地分支（branch），并将其连接到上游仓库要合入的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF%EF%BC%8C%E5%B9%B6%E5%B0%86%E4%B8%8A%E8%BF%B0%E6%96%B0%E5%88%86%E6%94%AF%E5%90%88%E5%85%A5"><span class="toc-number">2.5.</span> <span class="toc-text">切换到自己仓库要合入的分支，并将上述新分支合入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%B0%86%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0%EF%BC%88push%EF%BC%89%E4%B8%8A%E5%8E%BB%E5%8D%B3%E5%8F%AF"><span class="toc-number">2.6.</span> <span class="toc-text">最后将自己仓库更新（push）上去即可</span></a></li></ol></li></ol></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。</p>
+		<section class="toc-wrapper">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A6%81%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86%EF%BC%88clone%EF%BC%89%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">2.1.</span> <span class="toc-text">将要自己的仓库克隆（clone）到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">添加要合入的上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%EF%BC%88pull%EF%BC%89%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">拉取（pull）上游仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%EF%BC%88branch%EF%BC%89%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%85%B6%E8%BF%9E%E6%8E%A5%E5%88%B0%E4%B8%8A%E6%B8%B8%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">2.4.</span> <span class="toc-text">创建并切换到新的本地分支（branch），并将其连接到上游仓库要合入的分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E8%A6%81%E5%90%88%E5%85%A5%E7%9A%84%E5%88%86%E6%94%AF%EF%BC%8C%E5%B9%B6%E5%B0%86%E4%B8%8A%E8%BF%B0%E6%96%B0%E5%88%86%E6%94%AF%E5%90%88%E5%85%A5"><span class="toc-number">2.5.</span> <span class="toc-text">切换到自己仓库要合入的分支，并将上述新分支合入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%B0%86%E8%87%AA%E5%B7%B1%E4%BB%93%E5%BA%93%E6%9B%B4%E6%96%B0%EF%BC%88push%EF%BC%89%E4%B8%8A%E5%8E%BB%E5%8D%B3%E5%8F%AF"><span class="toc-number">2.6.</span> <span class="toc-text">最后将自己仓库更新（push）上去即可</span></a></li></ol></li></ol>
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>github上的开源项目有时无法完全满足自己需要，或者项目本身存在BUG，但是等不到开发者去修复。这时候我们往往会选择fork，然后自行修改或使用。但是一段时间后，原项目开发者可能会更新项目，追加新的功能或者修复已知BUG。这时，为了避免与上游脱节，我们需要将上游仓库合入到我们fork的仓库中。</p>
 <span id="more"></span>
 <h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>这里以本blog的主题（theme）为例，我fork了原作者的仓库，并在其基础上做了些个性化的改动，这些改动作者肯定不会合入的。但是近期原作者做了一些更新，加入的新的功能，因此我要将最新的版本合入到我自己的仓库中。详细操作步骤如下：</p>
 <h2 id="将要自己的仓库克隆（clone）到本地"><a href="#将要自己的仓库克隆（clone）到本地" class="headerlink" title="将要自己的仓库克隆（clone）到本地"></a>将要自己的仓库克隆（clone）到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;AxisRay&#x2F;hexo-theme-material-flow.git</span><br></pre></td></tr></table></figure>
@@ -171,27 +172,38 @@
 <h2 id="最后将自己仓库更新（push）上去即可"><a href="#最后将自己仓库更新（push）上去即可" class="headerlink" title="最后将自己仓库更新（push）上去即可"></a>最后将自己仓库更新（push）上去即可</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/git/">git</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
+					<div class="article-tags tags">
+						
+							<a href="/tags/git/">
+								git
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+										
+											<span class="art-item-right">next：<a href="/2017/06/17/jenkins-docker-permission-problem/"
+													rel="next" title="解决jenkins没有权限调用Docker的问题">
+													解决jenkins没有权限调用Docker的问题
+												</a><i class="icon icon-chevron-thin-right"></i></span>
+											
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-					<span class="art-item-right">next：<a href="/2017/06/17/jenkins-docker-permission-problem/" rel="next"  title="解决jenkins没有权限调用Docker的问题">
-						解决jenkins没有权限调用Docker的问题
-					</a><i class="icon icon-chevron-thin-right"></i></span>
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -199,7 +211,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         

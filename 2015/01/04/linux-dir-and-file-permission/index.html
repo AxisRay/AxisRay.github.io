@@ -137,19 +137,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-linux-dir-and-file-permission"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-linux-dir-and-file-permission" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2015/01/04/linux-dir-and-file-permission/">
-    	linux文件及目录权限笔记
-    </a>
-  </h2>
-	<time>
-	  1月 4, 2015
-	</time>
-	
+		<h2 class="title">
+			<a href="/2015/01/04/linux-dir-and-file-permission/">
+				linux文件及目录权限笔记
+			</a>
+		</h2>
+		<time>
+			1月 4, 2015
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/linux/">linux</a>
@@ -157,11 +156,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text">文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#w-%E3%80%81-wx%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">-w-、-wx：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93x%E3%80%81-wx%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">–x、-wx：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#r%E2%80%93%E3%80%81rw-%E3%80%81-w-%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">r–、rw-、-w-：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93x%E3%80%81-wx%E3%80%81rwx%E3%80%81r-x%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">–x、-wx、rwx、r-x：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>权限分三种，读（r）写（w）可执行（x）。“r–”、“rw-”、“rwx”这三种权限组合没什么好说的。“r–”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。</p>
+		<section class="toc-wrapper">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text">文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#w-%E3%80%81-wx%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">-w-、-wx：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93x%E3%80%81-wx%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">–x、-wx：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#r%E2%80%93%E3%80%81rw-%E3%80%81-w-%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">r–、rw-、-w-：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93x%E3%80%81-wx%E3%80%81rwx%E3%80%81r-x%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">–x、-wx、rwx、r-x：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>权限分三种，读（r）写（w）可执行（x）。“r–”、“rw-”、“rwx”这三种权限组合没什么好说的。“r–”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。</p>
 <span id="more"></span>
 <h2 id="w-、-wx："><a href="#w-、-wx：" class="headerlink" title="-w-、-wx："></a><strong>-w-、-wx：</strong></h2><p>只写权限，只能写入不能读取。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw--w- 1 root root    5 Jan  4 12:00 testfile</span><br><span class="line">/tmp$ cat testfile</span><br><span class="line">cat: testfile: Permission denied</span><br><span class="line">/tmp$ <span class="built_in">echo</span> <span class="string">&quot;write-test&quot;</span>&gt;testfile</span><br><span class="line">/tmp$ su root</span><br><span class="line">Password: </span><br><span class="line">root@axisray:/tmp<span class="comment"># cat testfile </span></span><br><span class="line">write-test</span><br></pre></td></tr></table></figure>
@@ -224,33 +225,48 @@
 <li>对于目录权限，可执行（x）权限是关键，没有可执行权限意味着所有命令都不能在该目录及子目录下执行，该目录及子目录下的文件也不能被执行。这意味着我们常用的命令cd、ls、mkdir、cp、mv、rm等等在该目录下全部失效</li>
 </ul>
 
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
-					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2015/01/27/ubuntu-change-bash-prompt/" rel="prev"  title="Ubuntu下修改Bash的提示符">
-						Ubuntu下修改Bash的提示符 
-					</a></span>
+					<div class="article-tags tags">
+						
+							<a href="/tags/linux/">
+								linux
+							</a>
+							
+							<a href="/tags/bash/">
+								bash
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+									<span class="art-item-left">
+										<i class="icon icon-chevron-thin-left"></i>prev：<a
+											href="/2015/01/27/ubuntu-change-bash-prompt/" rel="prev" title="Ubuntu下修改Bash的提示符">
+											Ubuntu下修改Bash的提示符
+										</a></span>
+									
+										
+											<span class="art-item-right">next：<a href="/2014/12/09/tortoise-icon-problem/"
+													rel="next" title="解决TortoiseSVN/Git覆盖图标失效的问题">
+													解决TortoiseSVN/Git覆盖图标失效的问题
+												</a><i class="icon icon-chevron-thin-right"></i></span>
+											
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-				
-					<span class="art-item-right">next：<a href="/2014/12/09/tortoise-icon-problem/" rel="next"  title="解决TortoiseSVN/Git覆盖图标失效的问题">
-						解决TortoiseSVN/Git覆盖图标失效的问题
-					</a><i class="icon icon-chevron-thin-right"></i></span>
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -258,7 +274,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         

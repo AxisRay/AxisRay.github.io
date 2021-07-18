@@ -139,19 +139,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-tmux-intruduction"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-tmux-intruduction" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2015/01/28/tmux-intruduction/">
-    	tmux使用笔记
-    </a>
-  </h2>
-	<time>
-	  1月 28, 2015
-	</time>
-	
+		<h2 class="title">
+			<a href="/2015/01/28/tmux-intruduction/">
+				tmux使用笔记
+			</a>
+		</h2>
+		<time>
+			1月 28, 2015
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/linux/">linux</a>
@@ -159,11 +158,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">tmux简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">安装使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">1、系统操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%AA%97%E5%8F%A3%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">2、窗口操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E9%9D%A2%E6%9D%BF%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">3、面板操作</span></a></li></ol></li></ol></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="tmux简介"><a href="#tmux简介" class="headerlink" title="tmux简介"></a>tmux简介</h1><p>tmux是<br>一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。tmux采用C/S模型构建，包含以下模块Server，Session，Window，Panel<br><img src="/img/tmux.jpg" alt="tmux"></p>
+		<section class="toc-wrapper">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">tmux简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">安装使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">操作说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">1、系统操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%AA%97%E5%8F%A3%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">2、窗口操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E9%9D%A2%E6%9D%BF%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">3、面板操作</span></a></li></ol></li></ol>
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<h1 id="tmux简介"><a href="#tmux简介" class="headerlink" title="tmux简介"></a>tmux简介</h1><p>tmux是<br>一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。tmux采用C/S模型构建，包含以下模块Server，Session，Window，Panel<br><img src="/img/tmux.jpg" alt="tmux"></p>
 <span id="more"></span>
 <h1 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install tmux</span><br></pre></td></tr></table></figure>
 <p>终端中键入tmux,首先会启动Server,然后就创建一个Session，这个Session会创建一个Window，仅包含一个Panel。</p>
@@ -183,33 +184,48 @@
 <h2 id="2、窗口操作"><a href="#2、窗口操作" class="headerlink" title="2、窗口操作"></a>2、窗口操作</h2><p><strong>c</strong> 创建新窗口<br><strong>&amp;</strong> 关闭当前窗口<br><strong>p</strong> 切换至上一窗口<br><strong>n</strong> 切换至下一窗口<br><strong>l</strong> 在前后两个窗口间互相切换<br><strong>w</strong> 通过窗口列表切换窗口<br><strong>,</strong> 重命名当前窗口；这样便于识别<br><strong>.</strong> 修改当前窗口编号；相当于窗口重新排序<br><strong>f</strong> 在所有窗口中查找指定文本<br><strong>数字</strong> 切换至制定窗口</p>
 <h2 id="3、面板操作"><a href="#3、面板操作" class="headerlink" title="3、面板操作"></a>3、面板操作</h2><p><strong>”</strong> 将当前面板平分为上下两块<br><strong>%</strong> 将当前面板平分为左右两块<br><strong>x</strong> 关闭当前面板<br><strong>!</strong> 将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板<br><strong>q</strong> 显示面板编号<br><strong>o</strong> 在当前窗口中选择下一面板<br><strong>{</strong> 向前置换当前面板<br><strong>}</strong> 向后置换当前面板<br><strong>Alt+o</strong> 逆时针旋转当前窗口的面板<br><strong>Alt+方向键</strong> 以5个单元格为单位移动边缘以调整当前面板大小<br><strong>Ctrl+o</strong> 顺时针旋转当前窗口的面板<br><strong>方向键</strong> 移动光标以选择面板<br><strong>Ctrl+方向键</strong> 以1个单元格为单位移动边缘以调整当前面板大小<br><strong>Space</strong> 在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled</p>
 
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/tmux/">tmux</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
-					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2015/01/29/linux-set-var/" rel="prev"  title="Bash变量操作实验-变量的测试和内容替换">
-						Bash变量操作实验-变量的测试和内容替换 
-					</a></span>
+					<div class="article-tags tags">
+						
+							<a href="/tags/linux/">
+								linux
+							</a>
+							
+							<a href="/tags/tmux/">
+								tmux
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+									<span class="art-item-left">
+										<i class="icon icon-chevron-thin-left"></i>prev：<a
+											href="/2015/01/29/linux-set-var/" rel="prev" title="Bash变量操作实验-变量的测试和内容替换">
+											Bash变量操作实验-变量的测试和内容替换
+										</a></span>
+									
+										
+											<span class="art-item-right">next：<a href="/2015/01/27/ubuntu-change-bash-prompt/"
+													rel="next" title="Ubuntu下修改Bash的提示符">
+													Ubuntu下修改Bash的提示符
+												</a><i class="icon icon-chevron-thin-right"></i></span>
+											
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-				
-					<span class="art-item-right">next：<a href="/2015/01/27/ubuntu-change-bash-prompt/" rel="next"  title="Ubuntu下修改Bash的提示符">
-						Ubuntu下修改Bash的提示符
-					</a><i class="icon icon-chevron-thin-right"></i></span>
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -217,7 +233,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         

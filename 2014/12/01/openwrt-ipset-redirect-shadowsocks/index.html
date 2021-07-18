@@ -137,19 +137,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-openwrt-ipset-redirect-shadowsocks"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-openwrt-ipset-redirect-shadowsocks" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2014/12/01/openwrt-ipset-redirect-shadowsocks/">
-    	在openwrt中利用ipset将特定流量转发到shadowsocks
-    </a>
-  </h2>
-	<time>
-	  12月 1, 2014
-	</time>
-	
+		<h2 class="title">
+			<a href="/2014/12/01/openwrt-ipset-redirect-shadowsocks/">
+				在openwrt中利用ipset将特定流量转发到shadowsocks
+			</a>
+		</h2>
+		<time>
+			12月 1, 2014
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/openwrt/">openwrt</a>
@@ -157,11 +156,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AEShadowsocks%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">二、配置Shadowsocks客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AEdnsmasq"><span class="toc-number">3.</span> <span class="toc-text">三、配置dnsmasq</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81ipset%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">四、ipset配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%B3%E4%BA%8Egfwlist%E8%BD%AC%E6%8D%A2%E6%88%90dnsmasq%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">五、关于gfwlist转换成dnsmasq的配置文件</span></a></li></ol></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、<strong>前言</strong></h1><p>虽然<em>Chrome</em>里的<em>SwitchySharp</em>插件可以根据规则自动转发特定流量到<em>Shadowsocks</em>，但是这种方式局限性还是很大。[北落师门][1]的博文中提供了一种在路由上自动转发特定流量的方法，使得转发过程对于客户端是透明的。我参考他的方法，做了一些改进。</p>
+		<section class="toc-wrapper">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AEShadowsocks%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">二、配置Shadowsocks客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AEdnsmasq"><span class="toc-number">3.</span> <span class="toc-text">三、配置dnsmasq</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81ipset%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">四、ipset配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%B3%E4%BA%8Egfwlist%E8%BD%AC%E6%8D%A2%E6%88%90dnsmasq%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">五、关于gfwlist转换成dnsmasq的配置文件</span></a></li></ol>
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、<strong>前言</strong></h1><p>虽然<em>Chrome</em>里的<em>SwitchySharp</em>插件可以根据规则自动转发特定流量到<em>Shadowsocks</em>，但是这种方式局限性还是很大。[北落师门][1]的博文中提供了一种在路由上自动转发特定流量的方法，使得转发过程对于客户端是透明的。我参考他的方法，做了一些改进。</p>
 <blockquote>
 <ul>
 <li>使用gfwlist扩大适用网站范围</li>
@@ -216,29 +217,43 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
 <h1 id="五、关于gfwlist转换成dnsmasq的配置文件"><a href="#五、关于gfwlist转换成dnsmasq的配置文件" class="headerlink" title="五、关于gfwlist转换成dnsmasq的配置文件"></a>五、<strong>关于gfwlist转换成dnsmasq的配置文件</strong></h1><p>这是我从网上找到的一个Python的脚本</p>
 <figure class="highlight python"><figcaption><span>gfwlist.py</span><a target="_blank" rel="noopener" href="http://axisray.me/share/gfwlist.py">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Modified from http://autoddvpn.googlecode.com/svn/trunk/grace.d/gfwListgen.py</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> os.path <span class="keyword">import</span> expanduser</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">gfwlist = <span class="string">&#x27;http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt&#x27;</span></span><br><span class="line"><span class="comment"># some sites can be visited via https or is already in known list</span></span><br><span class="line">oklist = [<span class="string">&#x27;flickr.com&#x27;</span>,<span class="string">&#x27;amazon.com&#x27;</span>,<span class="string">&#x27;twimg.com&#x27;</span>]</span><br><span class="line"><span class="keyword">print</span> (<span class="string">&quot;fetching gfwList ...&quot;</span>)</span><br><span class="line">d = urllib.urlopen(gfwlist).read()</span><br><span class="line">print(<span class="string">&quot;gfwList fetched&quot;</span>)</span><br><span class="line">data = base64.b64decode(d)</span><br><span class="line">lines = string.split(data, <span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">gfwlistfile = open(<span class="string">&#x27;./gfwlist.txt&#x27;</span>, <span class="string">&#x27;wa&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> lines:</span><br><span class="line">	gfwlistfile.write(l+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">gfwlistfile.close()</span><br><span class="line"></span><br><span class="line">newlist = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> lines:</span><br><span class="line">	<span class="keyword">if</span> len(l) == <span class="number">0</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l[<span class="number">0</span>] == <span class="string">&quot;!&quot;</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l[<span class="number">0</span>] == <span class="string">&quot;@&quot;</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l[<span class="number">0</span>] == <span class="string">&quot;[&quot;</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	l = string.replace(l, <span class="string">&quot;||&quot;</span>,<span class="string">&quot;&quot;</span>).lstrip(<span class="string">&quot;.&quot;</span>)</span><br><span class="line">	l = string.replace(l, <span class="string">&quot;|https://&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">	l = string.replace(l, <span class="string">&quot;|http://&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">	<span class="comment"># strip everything from &quot;/&quot; to the end</span></span><br><span class="line">	<span class="keyword">if</span> l.find(<span class="string">&quot;/&quot;</span>) != <span class="number">-1</span>:</span><br><span class="line">	        l = l[<span class="number">0</span>:l.find(<span class="string">&quot;/&quot;</span>)]</span><br><span class="line">	<span class="keyword">if</span> l.find(<span class="string">&quot;%2F&quot;</span>) != <span class="number">-1</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l.find(<span class="string">&quot;*&quot;</span>) != <span class="number">-1</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l.find(<span class="string">&quot;.&quot;</span>) == <span class="number">-1</span>:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> l <span class="keyword">in</span> oklist:</span><br><span class="line">	        <span class="keyword">continue</span></span><br><span class="line">	newlist.append(l)</span><br><span class="line"></span><br><span class="line">newlist = list(set(newlist))</span><br><span class="line">newlist.sort()</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate dnsmasq configuration</span></span><br><span class="line">gfwdn = open(<span class="string">&#x27;./gfwdomains.conf&#x27;</span>, <span class="string">&#x27;wa&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> newlist:</span><br><span class="line">        gfwdn.write(<span class="string">&#x27;server=/&#x27;</span>+l+<span class="string">&#x27;/127.0.0.1#5353\n&#x27;</span>)<span class="comment">#ss-tunel</span></span><br><span class="line">        gfwdn.write(<span class="string">&#x27;ipset=/&#x27;</span>+l+<span class="string">&#x27;/gfwipset\n&#x27;</span>)<span class="comment">#ipset</span></span><br><span class="line"></span><br><span class="line">gfwdn.close()</span><br></pre></td></tr></table></figure>
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/openwrt/">openwrt</a>
-      
-        <a href="/tags/shadowsocks/">shadowsocks</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
-					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2014/12/05/install-netfx3-from-sysimg/" rel="prev"  title="从光盘或镜像中安装.NetFramework">
-						从光盘或镜像中安装.NetFramework 
-					</a></span>
+					<div class="article-tags tags">
+						
+							<a href="/tags/openwrt/">
+								openwrt
+							</a>
+							
+							<a href="/tags/shadowsocks/">
+								shadowsocks
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+									<span class="art-item-left">
+										<i class="icon icon-chevron-thin-left"></i>prev：<a
+											href="/2014/12/05/install-netfx3-from-sysimg/" rel="prev" title="从光盘或镜像中安装.NetFramework">
+											从光盘或镜像中安装.NetFramework
+										</a></span>
+									
+										
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -246,7 +261,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         

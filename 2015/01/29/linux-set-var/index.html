@@ -137,19 +137,18 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        <article id="post-linux-set-var"
-  class="post white-box article-type-post"
-  itemscope itemprop="blogPost">
+        <article id="post-linux-set-var" class="post white-box article-type-post" itemscope
+	itemprop="blogPost">
 	<section class='meta'>
-	<h2 class="title">
-  	<a href="/2015/01/29/linux-set-var/">
-    	Bash变量操作实验-变量的测试和内容替换
-    </a>
-  </h2>
-	<time>
-	  1月 29, 2015
-	</time>
-	
+		<h2 class="title">
+			<a href="/2015/01/29/linux-set-var/">
+				Bash变量操作实验-变量的测试和内容替换
+			</a>
+		</h2>
+		<time>
+			1月 29, 2015
+		</time>
+		
     
     <div class='cats'>
         <a href="/categories/Linux/">Linux</a>
@@ -157,11 +156,13 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">实验准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C1%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.1.</span> <span class="toc-text">实验1、“-”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C2%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">实验2、“+”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C3%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.3.</span> <span class="toc-text">实验3、“&#x3D;”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C4%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.4.</span> <span class="toc-text">实验4、“?”操作符</span></a></li></ol></li></ol></section>
-	
-	<section class="article typo">
-  	<div class="article-entry" itemprop="articleBody">
-    	<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对__某个__变量进行__判断__,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
+		<section class="toc-wrapper">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">实验准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C1%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.1.</span> <span class="toc-text">实验1、“-”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C2%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">实验2、“+”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C3%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.3.</span> <span class="toc-text">实验3、“&#x3D;”操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C4%E3%80%81%E2%80%9C-%E2%80%9D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">2.4.</span> <span class="toc-text">实验4、“?”操作符</span></a></li></ol></li></ol>
+		</section>
+		
+			<section class="article typo">
+				<div class="article-entry" itemprop="articleBody">
+					<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对__某个__变量进行__判断__,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
 <span id="more"></span>
 <h1 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ var_value=<span class="string">&quot;test&quot;</span></span><br><span class="line">$ var_empty=<span class="string">&quot;&quot;</span></span><br><span class="line">$ <span class="built_in">unset</span> var_null</span><br><span class="line">$ result=<span class="string">&quot;hello&quot;</span></span><br></pre></td></tr></table></figure>
 <p>先创建4个变量（实际上是3个，因为var_null不存在）。<br>var_value值为test<br>var_empty值为空字符<br>var_null不存在，用unset确保它不存在<br>result用来保存结果，先赋个初值hello</p>
@@ -180,33 +181,48 @@
 <h2 id="实验4、“-”操作符"><a href="#实验4、“-”操作符" class="headerlink" title="实验4、“?”操作符"></a>实验4、“?”操作符</h2><p>“?”操作符与“-”的差异是，当被检查的变量为空时，会将默认字符送入标准错误流，而不是赋值给变量。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line">hello</span><br><span class="line">$ result=<span class="variable">$&#123;var_value?default&#125;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line">hello</span><br><span class="line">$ result=<span class="variable">$&#123;var_empty?default&#125;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line"></span><br><span class="line">$ result=<span class="variable">$&#123;var_null?default&#125;</span></span><br><span class="line">bash: var_null: default</span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line"></span><br><span class="line">$ result=<span class="variable">$&#123;var_empty:?default&#125;</span></span><br><span class="line">bash: var_null: default</span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$result</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-  	</div>
-	  
-	  <div class="article-tags tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
-      
-	  </div>
-    
-		
-	
-		<div class="art-item-footer">
+				</div>
 				
-					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/2017/06/17/jenkins-docker-permission-problem/" rel="prev"  title="解决jenkins没有权限调用Docker的问题">
-						解决jenkins没有权限调用Docker的问题 
-					</a></span>
+					<div class="article-tags tags">
+						
+							<a href="/tags/linux/">
+								linux
+							</a>
+							
+							<a href="/tags/bash/">
+								bash
+							</a>
+							
+					</div>
+					
+						
+							<div class="art-item-footer">
+								
+									<span class="art-item-left">
+										<i class="icon icon-chevron-thin-left"></i>prev：<a
+											href="/2017/06/17/jenkins-docker-permission-problem/" rel="prev" title="解决jenkins没有权限调用Docker的问题">
+											解决jenkins没有权限调用Docker的问题
+										</a></span>
+									
+										
+											<span class="art-item-right">next：<a href="/2015/01/28/tmux-intruduction/"
+													rel="next" title="tmux使用笔记">
+													tmux使用笔记
+												</a><i class="icon icon-chevron-thin-right"></i></span>
+											
+							</div>
+							
+			</section>
+			
+				<section id="comments">
+					
+						<script src="https://utteranc.es/client.js" repo=""
+							issue-term="" label=""
+							theme="github-light" crossorigin="anonymous" async>
+							</script>
+						
+				</section>
 				
-				
-					<span class="art-item-right">next：<a href="/2015/01/28/tmux-intruduction/" rel="next"  title="tmux使用笔记">
-						tmux使用笔记
-					</a><i class="icon icon-chevron-thin-right"></i></span>
-				
-		</div>
-	
-	</section>
-	
 </article>
 <script>
 	window.subData = {
@@ -214,7 +230,6 @@
 		tools: true
 	}
 </script>
-
       </div>
       <aside class='l_side'>
         
