@@ -2,7 +2,7 @@
 title: Bash变量操作实验-变量的测试和内容替换
 date: 2015-01-29 10:15:21
 categories:
-- Linux
+- linux
 tags:
 - bash
 - linux
