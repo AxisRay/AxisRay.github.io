@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Archives: 2015/1 | Ray of Hope</title>
+  <title>Archives: 2021 | Ray of Hope</title>
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Ray of Hope">
-<meta property="og:url" content="http://blog.raycn.pub/archives/2015/01/index.html">
+<meta property="og:url" content="http://blog.raycn.pub/archives/2021/index.html">
 <meta property="og:site_name" content="Ray of Hope">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Ray Lee">
@@ -134,7 +134,7 @@
         
 	
   <script>
-    window.subData= { title:'Year : 2015.1'}
+    window.subData= { title:'Year : 2021'}
   </script>
 
 <section class="post-list">
@@ -144,165 +144,36 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2015/01/29/linux-set-var/">
-        Bash变量操作实验-变量的测试和内容替换
+      <a href="/2021/08/21/reset-xiaomi-air-purifier-filters/">
+        【PM3】重置小米空气净化器滤芯
       </a>
     </h2>
     
     <time>
-      1月 29, 2015
+      8月 21, 2021
     </time>
 		
     
     <div class='cats'>
-        <a href="/categories/linux/">linux</a>
+        <a href="/categories/RFID/">RFID</a>
     </div>
 
   </section>
   <section class="article typo">
-	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对__某个__变量进行__判断__,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
+	  <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>家里小米空气净化器的滤芯又到期了，然而深圳这边空气质量平时就不错，应该还可以用很久。但是恼人的过期提示令我非常不爽，得想办法干掉这个提示。</p>
+<p>根据网上的资料，小米空气净化器2S是依赖滤芯底部的RFID标签计算滤芯寿命的，正好手头有一块RFID的利器-Proxmark3。尝试下能否读取和修改RFID标签中的数据，来实现滤芯寿命的重置。<br><img src="/img/2021-08-21-12-50-41.png" alt="滤芯底部的标签"></p>
+<h1 id="识别标签类型"><a href="#识别标签类型" class="headerlink" title="识别标签类型"></a>识别标签类型</h1>
 
     
 	  <div class="readmore">
-      <a href="/2015/01/29/linux-set-var/">Read More</a>
+      <a href="/2021/08/21/reset-xiaomi-air-purifier-filters/">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
-    <div class='post-wrapper'>
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2015/01/28/tmux-intruduction/">
-        tmux使用笔记
-      </a>
-    </h2>
-    
-    <time>
-      1月 28, 2015
-    </time>
-		
-    
-    <div class='cats'>
-        <a href="/categories/linux/">linux</a>
-    </div>
-
-  </section>
-  <section class="article typo">
-	  <h1 id="tmux简介"><a href="#tmux简介" class="headerlink" title="tmux简介"></a>tmux简介</h1><p>tmux是<br>一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。tmux采用C/S模型构建，包含以下模块Server，Session，Window，Panel<br><img src="/img/tmux.jpg" alt="tmux"></p>
-
-    
-	  <div class="readmore">
-      <a href="/2015/01/28/tmux-intruduction/">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/tmux/">tmux</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
-    <div class='post-wrapper'>
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2015/01/27/ubuntu-change-bash-prompt/">
-        Ubuntu下修改Bash的提示符
-      </a>
-    </h2>
-    
-    <time>
-      1月 27, 2015
-    </time>
-		
-    
-    <div class='cats'>
-        <a href="/categories/linux/">linux</a>
-    </div>
-
-  </section>
-  <section class="article typo">
-	  <p>Bash的提示符设置保存在$PS1这个变量中，通过echo命令可以查看当前设置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ray@Ray-Laptop:~$ <span class="built_in">echo</span> <span class="variable">$PS1</span></span><br><span class="line"><span class="variable">$&#123;debian_chroot:+($debian_chroot)&#125;</span>\u@\h:\w\$ </span><br></pre></td></tr></table></figure>
-
-    
-	  <div class="readmore">
-      <a href="/2015/01/27/ubuntu-change-bash-prompt/">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
-      
-        <a href="/tags/prompt/">prompt</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
-    <div class='post-wrapper'>
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2015/01/04/linux-dir-and-file-permission/">
-        linux文件及目录权限笔记
-      </a>
-    </h2>
-    
-    <time>
-      1月 4, 2015
-    </time>
-		
-    
-    <div class='cats'>
-        <a href="/categories/linux/">linux</a>
-    </div>
-
-  </section>
-  <section class="article typo">
-	  <h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>权限分三种，读（r）写（w）可执行（x）。“r–”、“rw-”、“rwx”这三种权限组合没什么好说的。“r–”只读，“rw-”可读可写，“rwx”可读可写可执行，下面介绍几种比较另类权限组合。</p>
-
-    
-	  <div class="readmore">
-      <a href="/2015/01/04/linux-dir-and-file-permission/">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/linux/">linux</a>
-      
-        <a href="/tags/bash/">bash</a>
+        <a href="/tags/proxmark3/">proxmark3</a>
       
 	  </div>
     

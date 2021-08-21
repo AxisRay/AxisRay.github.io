@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Category: Linux | Ray of Hope</title>
+  <title>Ray of Hope</title>
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Ray of Hope">
-<meta property="og:url" content="http://blog.raycn.pub/categories/Linux/index.html">
+<meta property="og:url" content="http://blog.raycn.pub/page/2/index.html">
 <meta property="og:site_name" content="Ray of Hope">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Ray Lee">
@@ -132,10 +132,6 @@
     <div class='container clearfix'>
       <div class='l_main'>
         
-  <script>
-    window.subData= { title:'Category : Linux'}
-  </script>
-
 <section class="post-list">
 	
     <div class='post-wrapper'>
@@ -143,36 +139,49 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2015/01/29/linux-set-var/">
-        Bash变量操作实验-变量的测试和内容替换
+      <a href="/2014/12/01/openwrt-ipset-redirect-shadowsocks/">
+        在openwrt中利用ipset将特定流量转发到shadowsocks
       </a>
     </h2>
     
     <time>
-      1月 29, 2015
+      12月 1, 2014
     </time>
 		
     
     <div class='cats'>
-        <a href="/categories/Linux/">Linux</a>
+        <a href="/categories/openwrt/">openwrt</a>
     </div>
 
   </section>
   <section class="article typo">
-	  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>某些时候，我们在给变量赋值之前要对__某个__变量进行__判断__,根据结果来决定我们下一步的赋值操作，下面演示下几种判断的方式。</p>
+	  <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、<strong>前言</strong></h1><p>虽然<em>Chrome</em>里的<em>SwitchySharp</em>插件可以根据规则自动转发特定流量到<em>Shadowsocks</em>，但是这种方式局限性还是很大。[北落师门][1]的博文中提供了一种在路由上自动转发特定流量的方法，使得转发过程对于客户端是透明的。我参考他的方法，做了一些改进。</p>
+<blockquote>
+<ul>
+<li>使用gfwlist扩大适用网站范围</li>
+<li>使用ss-tunnel解决DNS污染</li>
+</ul>
+</blockquote>
+<p> 大致过程如下</p>
+<blockquote>
+<ul>
+<li>dnsmasq将指定列表中的域名通过ss-tunnel发往未被污染的DNS进行解析，并将结果保存到ipset中</li>
+<li>在iptable中建立规则，将ipset中的IP的TCP流量重定向到ss-redir透明代理</li>
+</ul>
+</blockquote>
 
     
 	  <div class="readmore">
-      <a href="/2015/01/29/linux-set-var/">Read More</a>
+      <a href="/2014/12/01/openwrt-ipset-redirect-shadowsocks/">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/linux/">linux</a>
+        <a href="/tags/openwrt/">openwrt</a>
       
-        <a href="/tags/bash/">bash</a>
+        <a href="/tags/shadowsocks/">shadowsocks</a>
       
 	  </div>
     
@@ -182,6 +191,17 @@
   
 </section>
 
+
+  <nav id="page-nav">
+    
+    <a class="prev" rel="prev" href="/">
+      <span class="icon icon-chevron-left"></span>
+      <span class="text">Previous</span>
+    </a>
+    
+    
+  </nav>
+  
 
       </div>
       <aside class='l_side'>
@@ -223,11 +243,11 @@
     
     <ul class="entry">
     
-        <li><a class="flat-box" href="/categories/Linux/"><div class='name'>Linux</div><div class='badget'>1</div></a></li>
+        <li><a class="flat-box" href="/categories/RFID/"><div class='name'>RFID</div><div class='badget'>1</div></a></li>
     
         <li><a class="flat-box" href="/categories/git/"><div class='name'>git</div><div class='badget'>2</div></a></li>
     
-        <li><a class="flat-box" href="/categories/linux/"><div class='name'>linux</div><div class='badget'>5</div></a></li>
+        <li><a class="flat-box" href="/categories/linux/"><div class='name'>linux</div><div class='badget'>6</div></a></li>
     
         <li><a class="flat-box" href="/categories/openwrt/"><div class='name'>openwrt</div><div class='badget'>1</div></a></li>
     
@@ -242,7 +262,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class='content'>
-        <a href="/tags/bash/" style="font-size: 18px; color: #2b2b2b">bash</a> <a href="/tags/docker/" style="font-size: 14px; color: #808080">docker</a> <a href="/tags/dotnet/" style="font-size: 14px; color: #808080">dotnet</a> <a href="/tags/git/" style="font-size: 16px; color: #555">git</a> <a href="/tags/jenkins/" style="font-size: 14px; color: #808080">jenkins</a> <a href="/tags/linux/" style="font-size: 20px; color: #000">linux</a> <a href="/tags/openwrt/" style="font-size: 14px; color: #808080">openwrt</a> <a href="/tags/phpmyadmin/" style="font-size: 14px; color: #808080">phpmyadmin</a> <a href="/tags/prompt/" style="font-size: 14px; color: #808080">prompt</a> <a href="/tags/shadowsocks/" style="font-size: 14px; color: #808080">shadowsocks</a> <a href="/tags/tmux/" style="font-size: 14px; color: #808080">tmux</a> <a href="/tags/tortoise/" style="font-size: 14px; color: #808080">tortoise</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #808080">ubuntu</a>
+        <a href="/tags/bash/" style="font-size: 18px; color: #2b2b2b">bash</a> <a href="/tags/docker/" style="font-size: 14px; color: #808080">docker</a> <a href="/tags/dotnet/" style="font-size: 14px; color: #808080">dotnet</a> <a href="/tags/git/" style="font-size: 16px; color: #555">git</a> <a href="/tags/jenkins/" style="font-size: 14px; color: #808080">jenkins</a> <a href="/tags/linux/" style="font-size: 20px; color: #000">linux</a> <a href="/tags/openwrt/" style="font-size: 14px; color: #808080">openwrt</a> <a href="/tags/phpmyadmin/" style="font-size: 14px; color: #808080">phpmyadmin</a> <a href="/tags/prompt/" style="font-size: 14px; color: #808080">prompt</a> <a href="/tags/proxmark3/" style="font-size: 14px; color: #808080">proxmark3</a> <a href="/tags/shadowsocks/" style="font-size: 14px; color: #808080">shadowsocks</a> <a href="/tags/tmux/" style="font-size: 14px; color: #808080">tmux</a> <a href="/tags/tortoise/" style="font-size: 14px; color: #808080">tortoise</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #808080">ubuntu</a>
     </div>
 </div>
 
