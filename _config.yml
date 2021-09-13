@@ -147,3 +147,6 @@ deploy:
   repo: git@github.com:AxisRay/AxisRay.github.io.git
   branch: master
   message: Update
+
+include:
+  - .well-known/*
