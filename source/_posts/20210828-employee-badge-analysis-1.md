@@ -6,6 +6,7 @@ categories:
 tags:
 - proxmark3
 - JCOP
+comment: true
 ---
 # 背景
 公司近期替换了整个工卡系统，新的工卡系统采用的是一家名为“新开普”公司的解决方案。

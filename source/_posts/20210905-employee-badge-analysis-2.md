@@ -6,8 +6,9 @@ categories:
 tags:
 - proxmark3
 - JCOP
+comment: true
 ---
-# 背景
+# 前情提要
 上一篇说到公司换上了“新开普”工卡系统，新的工卡是一种CPU卡。其MIFAREClassic部分成功DUMP出来，但是没有有价值的信息，分析之路暂告一段落。
 
 这次尝试使用PM3强大的Sniff（嗅探）功能，抓取和门禁的交互，看是否能够获取到有价值的信息。
