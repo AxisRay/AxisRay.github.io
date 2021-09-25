@@ -67,7 +67,7 @@ comment: true
 ```
 
 # 嗅探分析
-实际上我嗅探了两次，两次结果完全一致。这已经说明存在很一个致命的问题，即没有随机数的存在，这意味着可以用重放的方式骗过门禁。
+实际上我嗅探了两次，两次结果完全一致。这已经说明存在一个致命的问题，即没有随机数的存在，这意味着可以用重放的方式骗过门禁。
 
 下面我们继续分析下交互的内容。
 # ISO/IEC 14443 - 3
@@ -83,7 +83,7 @@ comment: true
 读卡器发出REQA（0x26）指令，Tag返回ATQA（0x0004）。
 > 根据ISO/IEC 14443协议规范，传输的时候是低位在前。如下表，实际传输时从b1到b16，所以嗅探结果为0400。而实际上的ATQA的值是0004。
 
-<table>
+<table border="1" >
     <tr>
         <td colspan="8">MSB</td>
         <td colspan="8" align="right" >LSB</td>
@@ -139,7 +139,7 @@ comment: true
 
 下一步，读卡器继续发出ANTICOLLISION（0x9320）指令，进入防冲突循环。
 
-<table>
+<table border="1">
     <tr>
         <td>SEL</td>
         <td>NVB</td>
@@ -155,7 +155,7 @@ comment: true
 
 防冲突是标准中最精髓的部分，这里在ISO/IEC 14443标准中有详细解释，不再赘述。
 
-<table>
+<table border="1">
     <tr>
         <td>SEL</td>
         <td>NVB</td>
@@ -178,7 +178,7 @@ comment: true
 1Byte的SEL、1Byte的NVB、4Bytes的UID再加上1Byte的BCC，共计7Bytes余0Bit。所以NVB为0x70。后面跟上UID和BCC,最后是CRC，组成完整的SELECT命令
 
 
-<table>
+<table border="1">
     <tr>
         <td>SAK</td>
         <td colspan="2" align="center">CRC</td>
