@@ -149,11 +149,11 @@ comment: true
         <td>20</td>
 </table>
 
-0x93代表SEL（LECT）命令（Select cascade level 1），0x20代表NVB（Number of Valid Bits)，即有效位数。其高八位是有效Byte，即总位数除以8的商；低八位是有效Bit，即总位数除以8的模。
+0x93代表SEL（ECT）命令（Select cascade level 1），0x20代表NVB（Number of Valid Bits)，即有效位数。其高八位是有效Byte，即总位数除以8的商；低八位是有效Bit，即总位数除以8的模。
 
 这里的总位数是包括SEL和NVB自身，再加上后面的UID的位数。实际上这个命令完整应该是由SEL+NVB+UID1...UIDn+（BCC）组成。但对于读卡器，由于此时还不知道范围内有多少卡片，卡片的UID是多少。所以有效位数后面没有UID，其值只包含SEL和NVB，即NVB=20。意味着所有的卡片都要报上自己的UID。由于我们只有一张卡片，不存在冲突问题。所以卡片直接回复自己的完整UID。
 
-防冲突是标准中最精髓的部分，这里在ISO/IEC 14443标准中有详细解释，不再赘述。
+防冲突是标准中最精髓的部分，这里在ISO/IEC 14443标准中有详细解释，以后可能单独写写这块，这里就不再赘述了。
 
 <table class="gridtable">
     <tr>
@@ -174,9 +174,9 @@ comment: true
         <td>AA</td>
         <td>80</td>
 </table>
+
 读卡器获取到没有冲突的完整UID后，便发出SEL命令（0x93）选中这张卡片。此时命令包含
 1Byte的SEL、1Byte的NVB、4Bytes的UID再加上1Byte的BCC，共计7Bytes余0Bit。所以NVB为0x70。后面跟上UID和BCC,最后是CRC，组成完整的SELECT命令
-
 
 <table class="gridtable">
     <tr>
