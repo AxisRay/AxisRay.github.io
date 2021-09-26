@@ -83,10 +83,10 @@ comment: true
 读卡器发出REQA（0x26）指令，Tag返回ATQA（0x0004）。
 > 根据ISO/IEC 14443协议规范，传输的时候是低位在前。如下表，实际传输时从b1到b16，所以嗅探结果为0400。而实际上的ATQA的值是0004。
 
-<table border="1" >
+<table class="gridtable">
     <tr>
-        <td colspan="8">MSB</td>
-        <td colspan="8" align="right" >LSB</td>
+        <th colspan="8" align="left" >MSB</th>
+        <th colspan="8" align="right" >LSB</th>
     <tr>
     <tr>
         <td>b16</td>
@@ -139,10 +139,10 @@ comment: true
 
 下一步，读卡器继续发出ANTICOLLISION（0x9320）指令，进入防冲突循环。
 
-<table border="1">
+<table class="gridtable">
     <tr>
-        <td>SEL</td>
-        <td>NVB</td>
+        <th>SEL</th>
+        <th>NVB</th>
     <tr>
     <tr>
         <td>93</td>
@@ -155,13 +155,13 @@ comment: true
 
 防冲突是标准中最精髓的部分，这里在ISO/IEC 14443标准中有详细解释，不再赘述。
 
-<table border="1">
+<table class="gridtable">
     <tr>
-        <td>SEL</td>
-        <td>NVB</td>
-        <td colspan="4" align="center">UID</td>
-        <td>BCC</td>
-        <td colspan="2" align="center">CRC</td>
+        <th>SEL</th>
+        <th>NVB</th>
+        <th colspan="4" align="center">UID</th>
+        <th>BCC</th>
+        <th colspan="2" align="center">CRC</th>
     <tr>
     <tr>
         <td>93</td>
@@ -178,10 +178,10 @@ comment: true
 1Byte的SEL、1Byte的NVB、4Bytes的UID再加上1Byte的BCC，共计7Bytes余0Bit。所以NVB为0x70。后面跟上UID和BCC,最后是CRC，组成完整的SELECT命令
 
 
-<table border="1">
+<table class="gridtable">
     <tr>
-        <td>SAK</td>
-        <td colspan="2" align="center">CRC</td>
+        <th>SAK</th>
+        <th colspan="2" align="center">CRC</th>
     <tr>
     <tr>
         <td>28</td>
