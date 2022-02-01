@@ -139,6 +139,7 @@ theme_config:
     repo: AxisRay/AxisRay.github.io
     issue_term: title
     label: comment
+  icp: 粤ICP备2022011585号
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
