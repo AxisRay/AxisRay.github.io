@@ -39,7 +39,7 @@ jobs:
         with:
           driver: qiniu
           region: cn-south-1
-          bucket: blog
+          bucket: ray-blog
           dist: ./public
         env:
           UPTOC_UPLOADER_AK: ${{ secrets.QINIU_AK }}
