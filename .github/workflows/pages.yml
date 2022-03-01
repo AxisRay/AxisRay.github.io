@@ -34,3 +34,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: master  # deploying branch
+      - name: Upload to qiniu
+        uses: saltbo/uptoc@v1.4.3
+        with:
+          driver: qiniu
+          region: cn-south-1
+          bucket: blog
+          dist: ./public
+        env:
+          UPTOC_UPLOADER_AK: ${{ secrets.QINIU_AK }}
+          UPTOC_UPLOADER_SK: ${{ secrets.QINIU_SK }}
