@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>修复less升级到4.0+版本导致的页面异常</title>
+      <link href="/2022/03/10/20220310-fix-breaking-changes-in-less-4-0/"/>
+      <url>/2022/03/10/20220310-fix-breaking-changes-in-less-4-0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>顺shou手jian升级了下博客的<code>Hexo</code>版本和依赖的npm包，重新渲染了一遍博客发现页面元素都错位了。看来是某个依赖包有breaking-changes。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PS &gt; npm-check-updates -u</span><br><span class="line">Upgrading C:\Users\rayle\OneDrive\桌面\AxisRay.github.io\package.json</span><br><span class="line">[====================] 16/16 100%</span><br><span class="line"></span><br><span class="line"> hexo                         ^5.4.0  →  ^6.0.0</span><br><span class="line"> hexo-generator-json-content  ^4.1.6  →  ^4.2.3</span><br><span class="line"> hexo-renderer-ejs            ^1.0.0  →  ^2.0.0</span><br><span class="line"> hexo-renderer-less           ^2.0.2  →  ^4.0.0</span><br><span class="line"> hexo-renderer-marked         ^4.1.0  →  ^5.0.0</span><br><span class="line"> hexo-renderer-stylus         ^2.0.0  →  ^2.0.1</span><br><span class="line"> hexo-server                  ^2.0.0  →  ^3.0.0</span><br><span class="line"></span><br><span class="line">Run npm install to install new versions.</span><br></pre></td></tr></table></figure><span id="more"></span><h1 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h1><p>经过简单的检索，应该是<code>hexo-renderer-less-4.0.0</code>，这个npm包引入的问题。其<a href="https://github.com/hexojs/hexo-renderer-less/releases/tag/4.0.0">更新说明</a>中提示<code>less</code>更新到了4.1.2版本，而在<code>less</code>的4.0版本的<a href="(https://github.com/less/less.js/releases/tag/v4.0.0)">更新说明</a>中提示引入了两个会破坏向前兼容的两个特性。<br>第一个特性：</p><blockquote><p><strong>Parentheses required for mixin calls</strong><br>This aligns it with syntax for calling detached rulesets.</p></blockquote><p>这个检查了下，模板中并没有关于<code>mixin</code>的引用，可以排除</p><p>第二个特性：</p><blockquote><p><strong>Parens-division now the default math setting</strong><br>Parentheses are required (by default) around division-like expressions, to force math evaluation.</p></blockquote><p>看来是这个特性导致的了。根据其<a href="https://lesscss.org/usage/#less-options-math">说明</a>，对于数学计算（<code>math</code>），默认选项从<code>always</code>变成了<code>parens-division</code>。<br>具体变化就是，在<code>less</code>中进行除法计算，不能单纯的使用斜杠（<code>/</code>），而是必须使用圆括号括起来，例如<code>(2px / 2)</code>，或者使用<code>./</code>,例如<code>2px ./ 2</code>。但是需要注意的是<code>./</code>也过时（<code>deprecated</code>）了，即可能在未来的版本中移除，还是不要用的好。</p><h1 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h1><p>知道了问题原因，剩下的就是怎么修复了。根据说明，我们有两种选择，要么把所有的除法运算全部按要求改过来，要么把<code>math</code>的选项从默认的<code>parens-division</code>改回<code>always</code>。考虑到模板里面除法计算的地方比较多，我决定还是用采用后者办法。<br>根据<code>hexo-renderer-less</code>的<a href="https://github.com/hexojs/hexo-renderer-less">说明文档</a>，可以在模板中的配置文件<code>_config.yml</code>中设置<code>less</code>的渲染&#x2F;编译选项。<br>这里按下列方式在模板的配置文件<code>_config.yml</code>中增加相关的选项，问题即可解决。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="comment"># Less</span></span><br><span class="line"><span class="attr">less:</span></span><br><span class="line">  <span class="attr">options:</span></span><br><span class="line">    <span class="comment"># fix breaking changes in less 4.0+</span></span><br><span class="line">    <span class="comment"># https://github.com/less/less.js/releases/tag/v4.0.0</span></span><br><span class="line">    <span class="attr">math:</span> <span class="string">always</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何PowerShell会话中设置代理</title>
+      <link href="/2022/03/10/20220310-setting-proxy-in-powershell/"/>
+      <url>/2022/03/10/20220310-setting-proxy-in-powershell/</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>由于众所周知的原因，github的访问一直不太顺畅。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS [GIT_REPO]&gt; git push</span><br><span class="line">fatal: unable to access &#x27;https://github.com/AxisRay/AxisRay.github.io.git/&#x27;: Failed to connect to github.com port 443 after 21141 ms: Timed out</span><br></pre></td></tr></table></figure><p>在Bash中，我们可以通过如下命令来为<code>HTTPS</code>和<code>HTTP</code>设置代理。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HTTP_PROXY=http://127.0.0.1:1080</span><br><span class="line"><span class="built_in">export</span> HTTPS_PROXY=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>而在Windows下，PowerShell会话中也有类似的设置方式。</p><h1 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h1><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:HTTP_PROXY</span> = <span class="string">&quot;http://127.0.0.1:1080&quot;</span></span><br><span class="line"><span class="variable">$env:HTTPS_PROXY</span> = <span class="string">&quot;http://127.0.0.1:1080&quot;</span></span><br></pre></td></tr></table></figure><p>Boom！</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS [GIT_REPO]&gt; git push</span><br><span class="line">Enumerating objects: 23, done.</span><br><span class="line">Counting objects: 100% (23/23), done.</span><br><span class="line">Delta compression using up to 8 threads</span><br><span class="line">Compressing objects: 100% (11/11), done.</span><br><span class="line">Writing objects: 100% (14/14), 8.09 KiB | 1.62 MiB/s, done.</span><br><span class="line">Total 14 (delta 7), reused 0 (delta 0), pack-reused 0</span><br><span class="line">remote: Resolving deltas: 100% (7/7), completed with 5 local objects.</span><br><span class="line">To https://github.com/AxisRay/AxisRay.github.io.git</span><br><span class="line">   b582b44..90e06b5  source -&gt; source</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> powershell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【PM3】对公司新工卡的分析记录（三）——数据分析(上)</title>
       <link href="/2021/09/25/20210925-employee-badge-analysis-3/"/>
       <url>/2021/09/25/20210925-employee-badge-analysis-3/</url>
