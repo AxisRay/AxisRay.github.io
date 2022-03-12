@@ -45,4 +45,6 @@ jobs:
           UPTOC_UPLOADER_AK: ${{ secrets.QINIU_AK }}
           UPTOC_UPLOADER_SK: ${{ secrets.QINIU_SK }}
       - name: Refresh Qiniu CDN
-        run: bash depoly.sh ${{ secrets.QINIU_AK }} ${{ secrets.QINIU_SK }}
+        run: |
+          TOKEN=`echo "/v2/tune/refresh" |openssl dgst -binary -hmac ${{ secrets.QINIU_SK }} -sha1 |base64 | tr + - | tr / _`
+          curl -X POST -H "Authorization: QBox ${{ secrets.QINIU_AK }}:$TOKEN" http://fusion.qiniuapi.com/v2/tune/refresh -d '{"urls":["https://raycn.pub/index.html","https://raycn.pub/archives/index.html"]}' -H 'Content-Type: application/json'
